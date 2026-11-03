@@ -3,8 +3,8 @@ const escape=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&
 const badge=value=>`<span class="badge ${/^[\w-]+$/.test(value)?value:''}">${escape(value)}</span>`;
 const label=r=>r.provider==='meta'?'AI exploration':r.provider==='scripted-scenario-suite'?'Scenario coverage':'Scripted smoke test';
 const action=a=>a.type==='click'?`Click ${a.target==='add'?'Add to cart':a.target==='apply'?'Apply coupon':a.target==='reset'?'Reset cart':a.target}`:a.type==='fill'?`Set ${a.target} to ${a.value}`:a.type;
-let token='',selected=null,runs=[],lastJob=null,refreshing=false;
-async function api(url,options={}){const response=await fetch(url,{...options,headers:{'x-bugarena-token':token,...options.headers}});const data=await response.json();if(!response.ok)throw new Error(data.error||'Request failed');return data;}
+let token='',runKey='',selected=null,runs=[],lastJob=null,refreshing=false;
+async function api(url,options={}){const response=await fetch(url,{...options,headers:{'x-bugarena-token':token,'x-bugarena-run-key':runKey,...options.headers}});const data=await response.json();if(!response.ok)throw new Error(data.error||'Request failed');return data;}
 function showError(error){$('error').hidden=false;$('error').textContent=error.message;}
 function artifact(id,file){return `/artifacts/${encodeURIComponent(id)}/${encodeURIComponent(file)}`;}
 function download(id,file,title=file){return `<a class="download" href="${artifact(id,file)}" download>${escape(title)} ↓</a>`;}
@@ -56,8 +56,10 @@ async function refresh(){
  try {
   const [state,history]=await Promise.all([api('/api/state'),api('/api/runs')]);token=state.token;runs=history;
   $('connection').textContent=state.keyConfigured?'Meta key configured':'Meta key missing';
+  $('access').hidden=!state.publicMode;
+  $('access-status').textContent=state.canRun?'Live tests unlocked for this tab.':state.runAccessConfigured?'Evidence viewing is available without a code.':'Live execution is disabled by the owner. Evidence remains available.';
   const busy=state.job?.status==='running';
-  document.querySelectorAll('[data-kind]').forEach(b=>b.disabled=busy||(!state.keyConfigured&&['ai','fixed'].includes(b.dataset.kind)));
+  document.querySelectorAll('[data-kind]').forEach(b=>b.disabled=!state.canRun||busy||(!state.keyConfigured&&['ai','fixed'].includes(b.dataset.kind)));
   if(state.job){const job=state.job;$('progress').hidden=false;$('job-title').textContent=`${{ai:'AI exploration',fixed:'AI on corrected shop',coverage:'Scenario checks',smoke:'Scripted smoke test'}[job.kind]} · ${job.status}`;$('log').textContent=job.log||'Starting browser…';$('stop').hidden=!busy;
    $('job-result').textContent=job.status==='running'?'Live runner output. Evidence appears when the run finishes.':job.runId?'Run saved. Select it below to inspect the result.':'No completed report was saved. Check the log above.';
    if(job.status!=='running'&&job.runId&&lastJob!==job.id){lastJob=job.id;selectRun(job.runId);}
@@ -71,4 +73,5 @@ document.querySelectorAll('[data-kind]').forEach(button=>button.addEventListener
 }));
 $('stop').onclick=async()=>{try{await api('/api/stop',{method:'POST'});await refresh();}catch(error){showError(error);}};
 $('refresh').onclick=refresh;
+$('unlock').onsubmit=async event=>{event.preventDefault();runKey=$('run-key').value;$('run-key').value='';await refresh();};
 refresh();setInterval(refresh,2000);

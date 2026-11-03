@@ -27,7 +27,7 @@ The model chooses exploration actions, while code provides repeatable verificati
 
 ## Scope and limitations
 
-This is a single-user local prototype for a controlled demo shop. It is not a general-purpose website scanner. Page observations use DOM text and controls, not vision. The verification contract is specific to the shop. The corrected implementation is prewritten, not an AI-generated fix. There is no hosted public testing service.
+This is a single-user local prototype for a controlled demo shop. It is not a general-purpose website scanner. Page observations use DOM text and controls, not vision. The verification contract is specific to the shop. The corrected implementation is prewritten, not an AI-generated fix. A Docker deployment is prepared for a shared public demo with judge-gated execution; public availability must be verified before submission.
 
 ## Development disclosure
 
@@ -35,9 +35,9 @@ The initial local prototype commit is dated October 26, 2026. Subsequent work ad
 
 ## Fill before submitting
 
-- Public repository URL: pending publication.
+- Public repository URL: https://github.com/yeshwanthnarige/bugarena
 - Demo video URL: pending recording/upload.
 - Contributors: confirm the names required by the application.
-- Deployment: local setup instructions in README; no hosted URL currently exists.
+- Deployment: Render instructions in DEPLOYMENT.md; insert the assigned HTTPS URL after verification.
 
 Copy only the sections relevant to the actual form. Do not submit placeholder URLs or claim publication/video completion before they exist.

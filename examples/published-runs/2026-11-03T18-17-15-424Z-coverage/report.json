@@ -1,0 +1,2173 @@
+{
+  "runId": "2026-11-03T18-17-15-424Z-coverage",
+  "provider": "scripted-scenario-suite",
+  "aiDiscovery": false,
+  "results": [
+    {
+      "id": "no-coupon",
+      "name": "Change quantity without a coupon",
+      "variant": "shop",
+      "status": "passed",
+      "checkpoints": [
+        {
+          "step": 1,
+          "action": {
+            "type": "click",
+            "target": "add"
+          },
+          "expected": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$0.00",
+            "total": "$25.00",
+            "coupon-status": "No coupon applied"
+          },
+          "actual": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$0.00",
+            "total": "$25.00",
+            "coupon-status": "No coupon applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 2,
+          "action": {
+            "type": "fill",
+            "target": "quantity",
+            "value": "3"
+          },
+          "expected": {
+            "quantity": "3",
+            "unit-price": "$25.00",
+            "subtotal": "$75.00",
+            "discount": "$0.00",
+            "total": "$75.00",
+            "coupon-status": "No coupon applied"
+          },
+          "actual": {
+            "quantity": "3",
+            "unit-price": "$25.00",
+            "subtotal": "$75.00",
+            "discount": "$0.00",
+            "total": "$75.00",
+            "coupon-status": "No coupon applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 3,
+          "action": {
+            "type": "fill",
+            "target": "quantity",
+            "value": "1"
+          },
+          "expected": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$0.00",
+            "total": "$25.00",
+            "coupon-status": "No coupon applied"
+          },
+          "actual": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$0.00",
+            "total": "$25.00",
+            "coupon-status": "No coupon applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 4,
+          "action": {
+            "type": "fill",
+            "target": "quantity",
+            "value": "0"
+          },
+          "expected": {
+            "quantity": "0",
+            "unit-price": "$25.00",
+            "subtotal": "$0.00",
+            "discount": "$0.00",
+            "total": "$0.00",
+            "coupon-status": "No coupon applied"
+          },
+          "actual": {
+            "quantity": "0",
+            "unit-price": "$25.00",
+            "subtotal": "$0.00",
+            "discount": "$0.00",
+            "total": "$0.00",
+            "coupon-status": "No coupon applied"
+          },
+          "differences": [],
+          "screenshot": "no-coupon-shop-4.png"
+        }
+      ]
+    },
+    {
+      "id": "no-coupon",
+      "name": "Change quantity without a coupon",
+      "variant": "fixed",
+      "status": "passed",
+      "checkpoints": [
+        {
+          "step": 1,
+          "action": {
+            "type": "click",
+            "target": "add"
+          },
+          "expected": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$0.00",
+            "total": "$25.00",
+            "coupon-status": "No coupon applied"
+          },
+          "actual": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$0.00",
+            "total": "$25.00",
+            "coupon-status": "No coupon applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 2,
+          "action": {
+            "type": "fill",
+            "target": "quantity",
+            "value": "3"
+          },
+          "expected": {
+            "quantity": "3",
+            "unit-price": "$25.00",
+            "subtotal": "$75.00",
+            "discount": "$0.00",
+            "total": "$75.00",
+            "coupon-status": "No coupon applied"
+          },
+          "actual": {
+            "quantity": "3",
+            "unit-price": "$25.00",
+            "subtotal": "$75.00",
+            "discount": "$0.00",
+            "total": "$75.00",
+            "coupon-status": "No coupon applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 3,
+          "action": {
+            "type": "fill",
+            "target": "quantity",
+            "value": "1"
+          },
+          "expected": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$0.00",
+            "total": "$25.00",
+            "coupon-status": "No coupon applied"
+          },
+          "actual": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$0.00",
+            "total": "$25.00",
+            "coupon-status": "No coupon applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 4,
+          "action": {
+            "type": "fill",
+            "target": "quantity",
+            "value": "0"
+          },
+          "expected": {
+            "quantity": "0",
+            "unit-price": "$25.00",
+            "subtotal": "$0.00",
+            "discount": "$0.00",
+            "total": "$0.00",
+            "coupon-status": "No coupon applied"
+          },
+          "actual": {
+            "quantity": "0",
+            "unit-price": "$25.00",
+            "subtotal": "$0.00",
+            "discount": "$0.00",
+            "total": "$0.00",
+            "coupon-status": "No coupon applied"
+          },
+          "differences": [],
+          "screenshot": "no-coupon-fixed-4.png"
+        }
+      ]
+    },
+    {
+      "id": "apply-coupon",
+      "name": "Apply SAVE10 to an existing cart",
+      "variant": "shop",
+      "status": "passed",
+      "checkpoints": [
+        {
+          "step": 1,
+          "action": {
+            "type": "fill",
+            "target": "quantity",
+            "value": "2"
+          },
+          "expected": {
+            "quantity": "2",
+            "unit-price": "$25.00",
+            "subtotal": "$50.00",
+            "discount": "$0.00",
+            "total": "$50.00",
+            "coupon-status": "No coupon applied"
+          },
+          "actual": {
+            "quantity": "2",
+            "unit-price": "$25.00",
+            "subtotal": "$50.00",
+            "discount": "$0.00",
+            "total": "$50.00",
+            "coupon-status": "No coupon applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 2,
+          "action": {
+            "type": "fill",
+            "target": "coupon",
+            "value": "SAVE10"
+          },
+          "expected": {
+            "quantity": "2",
+            "unit-price": "$25.00",
+            "subtotal": "$50.00",
+            "discount": "$0.00",
+            "total": "$50.00",
+            "coupon-status": "No coupon applied"
+          },
+          "actual": {
+            "quantity": "2",
+            "unit-price": "$25.00",
+            "subtotal": "$50.00",
+            "discount": "$0.00",
+            "total": "$50.00",
+            "coupon-status": "No coupon applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 3,
+          "action": {
+            "type": "click",
+            "target": "apply"
+          },
+          "expected": {
+            "quantity": "2",
+            "unit-price": "$25.00",
+            "subtotal": "$50.00",
+            "discount": "$5.00",
+            "total": "$45.00",
+            "coupon-status": "SAVE10 applied"
+          },
+          "actual": {
+            "quantity": "2",
+            "unit-price": "$25.00",
+            "subtotal": "$50.00",
+            "discount": "$5.00",
+            "total": "$45.00",
+            "coupon-status": "SAVE10 applied"
+          },
+          "differences": [],
+          "screenshot": "apply-coupon-shop-3.png"
+        }
+      ]
+    },
+    {
+      "id": "apply-coupon",
+      "name": "Apply SAVE10 to an existing cart",
+      "variant": "fixed",
+      "status": "passed",
+      "checkpoints": [
+        {
+          "step": 1,
+          "action": {
+            "type": "fill",
+            "target": "quantity",
+            "value": "2"
+          },
+          "expected": {
+            "quantity": "2",
+            "unit-price": "$25.00",
+            "subtotal": "$50.00",
+            "discount": "$0.00",
+            "total": "$50.00",
+            "coupon-status": "No coupon applied"
+          },
+          "actual": {
+            "quantity": "2",
+            "unit-price": "$25.00",
+            "subtotal": "$50.00",
+            "discount": "$0.00",
+            "total": "$50.00",
+            "coupon-status": "No coupon applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 2,
+          "action": {
+            "type": "fill",
+            "target": "coupon",
+            "value": "SAVE10"
+          },
+          "expected": {
+            "quantity": "2",
+            "unit-price": "$25.00",
+            "subtotal": "$50.00",
+            "discount": "$0.00",
+            "total": "$50.00",
+            "coupon-status": "No coupon applied"
+          },
+          "actual": {
+            "quantity": "2",
+            "unit-price": "$25.00",
+            "subtotal": "$50.00",
+            "discount": "$0.00",
+            "total": "$50.00",
+            "coupon-status": "No coupon applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 3,
+          "action": {
+            "type": "click",
+            "target": "apply"
+          },
+          "expected": {
+            "quantity": "2",
+            "unit-price": "$25.00",
+            "subtotal": "$50.00",
+            "discount": "$5.00",
+            "total": "$45.00",
+            "coupon-status": "SAVE10 applied"
+          },
+          "actual": {
+            "quantity": "2",
+            "unit-price": "$25.00",
+            "subtotal": "$50.00",
+            "discount": "$5.00",
+            "total": "$45.00",
+            "coupon-status": "SAVE10 applied"
+          },
+          "differences": [],
+          "screenshot": "apply-coupon-fixed-3.png"
+        }
+      ]
+    },
+    {
+      "id": "increase-input",
+      "name": "Increase quantity after coupon using input",
+      "variant": "shop",
+      "status": "failed",
+      "checkpoints": [
+        {
+          "step": 1,
+          "action": {
+            "type": "click",
+            "target": "add"
+          },
+          "expected": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$0.00",
+            "total": "$25.00",
+            "coupon-status": "No coupon applied"
+          },
+          "actual": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$0.00",
+            "total": "$25.00",
+            "coupon-status": "No coupon applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 2,
+          "action": {
+            "type": "fill",
+            "target": "coupon",
+            "value": "SAVE10"
+          },
+          "expected": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$0.00",
+            "total": "$25.00",
+            "coupon-status": "No coupon applied"
+          },
+          "actual": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$0.00",
+            "total": "$25.00",
+            "coupon-status": "No coupon applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 3,
+          "action": {
+            "type": "click",
+            "target": "apply"
+          },
+          "expected": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$2.50",
+            "total": "$22.50",
+            "coupon-status": "SAVE10 applied"
+          },
+          "actual": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$2.50",
+            "total": "$22.50",
+            "coupon-status": "SAVE10 applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 4,
+          "action": {
+            "type": "fill",
+            "target": "quantity",
+            "value": "2"
+          },
+          "expected": {
+            "quantity": "2",
+            "unit-price": "$25.00",
+            "subtotal": "$50.00",
+            "discount": "$5.00",
+            "total": "$45.00",
+            "coupon-status": "SAVE10 applied"
+          },
+          "actual": {
+            "quantity": "2",
+            "unit-price": "$25.00",
+            "subtotal": "$50.00",
+            "discount": "$2.50",
+            "total": "$47.50",
+            "coupon-status": "SAVE10 applied"
+          },
+          "differences": [
+            {
+              "field": "discount",
+              "expected": "$5.00",
+              "actual": "$2.50"
+            },
+            {
+              "field": "total",
+              "expected": "$45.00",
+              "actual": "$47.50"
+            }
+          ],
+          "screenshot": "increase-input-shop-4.png"
+        }
+      ]
+    },
+    {
+      "id": "increase-input",
+      "name": "Increase quantity after coupon using input",
+      "variant": "fixed",
+      "status": "passed",
+      "checkpoints": [
+        {
+          "step": 1,
+          "action": {
+            "type": "click",
+            "target": "add"
+          },
+          "expected": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$0.00",
+            "total": "$25.00",
+            "coupon-status": "No coupon applied"
+          },
+          "actual": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$0.00",
+            "total": "$25.00",
+            "coupon-status": "No coupon applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 2,
+          "action": {
+            "type": "fill",
+            "target": "coupon",
+            "value": "SAVE10"
+          },
+          "expected": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$0.00",
+            "total": "$25.00",
+            "coupon-status": "No coupon applied"
+          },
+          "actual": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$0.00",
+            "total": "$25.00",
+            "coupon-status": "No coupon applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 3,
+          "action": {
+            "type": "click",
+            "target": "apply"
+          },
+          "expected": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$2.50",
+            "total": "$22.50",
+            "coupon-status": "SAVE10 applied"
+          },
+          "actual": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$2.50",
+            "total": "$22.50",
+            "coupon-status": "SAVE10 applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 4,
+          "action": {
+            "type": "fill",
+            "target": "quantity",
+            "value": "2"
+          },
+          "expected": {
+            "quantity": "2",
+            "unit-price": "$25.00",
+            "subtotal": "$50.00",
+            "discount": "$5.00",
+            "total": "$45.00",
+            "coupon-status": "SAVE10 applied"
+          },
+          "actual": {
+            "quantity": "2",
+            "unit-price": "$25.00",
+            "subtotal": "$50.00",
+            "discount": "$5.00",
+            "total": "$45.00",
+            "coupon-status": "SAVE10 applied"
+          },
+          "differences": [],
+          "screenshot": "increase-input-fixed-4.png"
+        }
+      ]
+    },
+    {
+      "id": "increase-button",
+      "name": "Add another item after coupon",
+      "variant": "shop",
+      "status": "failed",
+      "checkpoints": [
+        {
+          "step": 1,
+          "action": {
+            "type": "click",
+            "target": "add"
+          },
+          "expected": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$0.00",
+            "total": "$25.00",
+            "coupon-status": "No coupon applied"
+          },
+          "actual": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$0.00",
+            "total": "$25.00",
+            "coupon-status": "No coupon applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 2,
+          "action": {
+            "type": "fill",
+            "target": "coupon",
+            "value": "SAVE10"
+          },
+          "expected": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$0.00",
+            "total": "$25.00",
+            "coupon-status": "No coupon applied"
+          },
+          "actual": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$0.00",
+            "total": "$25.00",
+            "coupon-status": "No coupon applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 3,
+          "action": {
+            "type": "click",
+            "target": "apply"
+          },
+          "expected": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$2.50",
+            "total": "$22.50",
+            "coupon-status": "SAVE10 applied"
+          },
+          "actual": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$2.50",
+            "total": "$22.50",
+            "coupon-status": "SAVE10 applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 4,
+          "action": {
+            "type": "click",
+            "target": "add"
+          },
+          "expected": {
+            "quantity": "2",
+            "unit-price": "$25.00",
+            "subtotal": "$50.00",
+            "discount": "$5.00",
+            "total": "$45.00",
+            "coupon-status": "SAVE10 applied"
+          },
+          "actual": {
+            "quantity": "2",
+            "unit-price": "$25.00",
+            "subtotal": "$50.00",
+            "discount": "$2.50",
+            "total": "$47.50",
+            "coupon-status": "SAVE10 applied"
+          },
+          "differences": [
+            {
+              "field": "discount",
+              "expected": "$5.00",
+              "actual": "$2.50"
+            },
+            {
+              "field": "total",
+              "expected": "$45.00",
+              "actual": "$47.50"
+            }
+          ],
+          "screenshot": "increase-button-shop-4.png"
+        }
+      ]
+    },
+    {
+      "id": "increase-button",
+      "name": "Add another item after coupon",
+      "variant": "fixed",
+      "status": "passed",
+      "checkpoints": [
+        {
+          "step": 1,
+          "action": {
+            "type": "click",
+            "target": "add"
+          },
+          "expected": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$0.00",
+            "total": "$25.00",
+            "coupon-status": "No coupon applied"
+          },
+          "actual": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$0.00",
+            "total": "$25.00",
+            "coupon-status": "No coupon applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 2,
+          "action": {
+            "type": "fill",
+            "target": "coupon",
+            "value": "SAVE10"
+          },
+          "expected": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$0.00",
+            "total": "$25.00",
+            "coupon-status": "No coupon applied"
+          },
+          "actual": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$0.00",
+            "total": "$25.00",
+            "coupon-status": "No coupon applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 3,
+          "action": {
+            "type": "click",
+            "target": "apply"
+          },
+          "expected": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$2.50",
+            "total": "$22.50",
+            "coupon-status": "SAVE10 applied"
+          },
+          "actual": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$2.50",
+            "total": "$22.50",
+            "coupon-status": "SAVE10 applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 4,
+          "action": {
+            "type": "click",
+            "target": "add"
+          },
+          "expected": {
+            "quantity": "2",
+            "unit-price": "$25.00",
+            "subtotal": "$50.00",
+            "discount": "$5.00",
+            "total": "$45.00",
+            "coupon-status": "SAVE10 applied"
+          },
+          "actual": {
+            "quantity": "2",
+            "unit-price": "$25.00",
+            "subtotal": "$50.00",
+            "discount": "$5.00",
+            "total": "$45.00",
+            "coupon-status": "SAVE10 applied"
+          },
+          "differences": [],
+          "screenshot": "increase-button-fixed-4.png"
+        }
+      ]
+    },
+    {
+      "id": "decrease",
+      "name": "Decrease quantity after coupon",
+      "variant": "shop",
+      "status": "failed",
+      "checkpoints": [
+        {
+          "step": 1,
+          "action": {
+            "type": "fill",
+            "target": "quantity",
+            "value": "3"
+          },
+          "expected": {
+            "quantity": "3",
+            "unit-price": "$25.00",
+            "subtotal": "$75.00",
+            "discount": "$0.00",
+            "total": "$75.00",
+            "coupon-status": "No coupon applied"
+          },
+          "actual": {
+            "quantity": "3",
+            "unit-price": "$25.00",
+            "subtotal": "$75.00",
+            "discount": "$0.00",
+            "total": "$75.00",
+            "coupon-status": "No coupon applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 2,
+          "action": {
+            "type": "fill",
+            "target": "coupon",
+            "value": "SAVE10"
+          },
+          "expected": {
+            "quantity": "3",
+            "unit-price": "$25.00",
+            "subtotal": "$75.00",
+            "discount": "$0.00",
+            "total": "$75.00",
+            "coupon-status": "No coupon applied"
+          },
+          "actual": {
+            "quantity": "3",
+            "unit-price": "$25.00",
+            "subtotal": "$75.00",
+            "discount": "$0.00",
+            "total": "$75.00",
+            "coupon-status": "No coupon applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 3,
+          "action": {
+            "type": "click",
+            "target": "apply"
+          },
+          "expected": {
+            "quantity": "3",
+            "unit-price": "$25.00",
+            "subtotal": "$75.00",
+            "discount": "$7.50",
+            "total": "$67.50",
+            "coupon-status": "SAVE10 applied"
+          },
+          "actual": {
+            "quantity": "3",
+            "unit-price": "$25.00",
+            "subtotal": "$75.00",
+            "discount": "$7.50",
+            "total": "$67.50",
+            "coupon-status": "SAVE10 applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 4,
+          "action": {
+            "type": "fill",
+            "target": "quantity",
+            "value": "1"
+          },
+          "expected": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$2.50",
+            "total": "$22.50",
+            "coupon-status": "SAVE10 applied"
+          },
+          "actual": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$7.50",
+            "total": "$17.50",
+            "coupon-status": "SAVE10 applied"
+          },
+          "differences": [
+            {
+              "field": "discount",
+              "expected": "$2.50",
+              "actual": "$7.50"
+            },
+            {
+              "field": "total",
+              "expected": "$22.50",
+              "actual": "$17.50"
+            }
+          ],
+          "screenshot": "decrease-shop-4.png"
+        }
+      ]
+    },
+    {
+      "id": "decrease",
+      "name": "Decrease quantity after coupon",
+      "variant": "fixed",
+      "status": "passed",
+      "checkpoints": [
+        {
+          "step": 1,
+          "action": {
+            "type": "fill",
+            "target": "quantity",
+            "value": "3"
+          },
+          "expected": {
+            "quantity": "3",
+            "unit-price": "$25.00",
+            "subtotal": "$75.00",
+            "discount": "$0.00",
+            "total": "$75.00",
+            "coupon-status": "No coupon applied"
+          },
+          "actual": {
+            "quantity": "3",
+            "unit-price": "$25.00",
+            "subtotal": "$75.00",
+            "discount": "$0.00",
+            "total": "$75.00",
+            "coupon-status": "No coupon applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 2,
+          "action": {
+            "type": "fill",
+            "target": "coupon",
+            "value": "SAVE10"
+          },
+          "expected": {
+            "quantity": "3",
+            "unit-price": "$25.00",
+            "subtotal": "$75.00",
+            "discount": "$0.00",
+            "total": "$75.00",
+            "coupon-status": "No coupon applied"
+          },
+          "actual": {
+            "quantity": "3",
+            "unit-price": "$25.00",
+            "subtotal": "$75.00",
+            "discount": "$0.00",
+            "total": "$75.00",
+            "coupon-status": "No coupon applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 3,
+          "action": {
+            "type": "click",
+            "target": "apply"
+          },
+          "expected": {
+            "quantity": "3",
+            "unit-price": "$25.00",
+            "subtotal": "$75.00",
+            "discount": "$7.50",
+            "total": "$67.50",
+            "coupon-status": "SAVE10 applied"
+          },
+          "actual": {
+            "quantity": "3",
+            "unit-price": "$25.00",
+            "subtotal": "$75.00",
+            "discount": "$7.50",
+            "total": "$67.50",
+            "coupon-status": "SAVE10 applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 4,
+          "action": {
+            "type": "fill",
+            "target": "quantity",
+            "value": "1"
+          },
+          "expected": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$2.50",
+            "total": "$22.50",
+            "coupon-status": "SAVE10 applied"
+          },
+          "actual": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$2.50",
+            "total": "$22.50",
+            "coupon-status": "SAVE10 applied"
+          },
+          "differences": [],
+          "screenshot": "decrease-fixed-4.png"
+        }
+      ]
+    },
+    {
+      "id": "empty",
+      "name": "Set quantity to zero after coupon",
+      "variant": "shop",
+      "status": "failed",
+      "checkpoints": [
+        {
+          "step": 1,
+          "action": {
+            "type": "click",
+            "target": "add"
+          },
+          "expected": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$0.00",
+            "total": "$25.00",
+            "coupon-status": "No coupon applied"
+          },
+          "actual": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$0.00",
+            "total": "$25.00",
+            "coupon-status": "No coupon applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 2,
+          "action": {
+            "type": "fill",
+            "target": "coupon",
+            "value": "SAVE10"
+          },
+          "expected": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$0.00",
+            "total": "$25.00",
+            "coupon-status": "No coupon applied"
+          },
+          "actual": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$0.00",
+            "total": "$25.00",
+            "coupon-status": "No coupon applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 3,
+          "action": {
+            "type": "click",
+            "target": "apply"
+          },
+          "expected": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$2.50",
+            "total": "$22.50",
+            "coupon-status": "SAVE10 applied"
+          },
+          "actual": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$2.50",
+            "total": "$22.50",
+            "coupon-status": "SAVE10 applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 4,
+          "action": {
+            "type": "fill",
+            "target": "quantity",
+            "value": "0"
+          },
+          "expected": {
+            "quantity": "0",
+            "unit-price": "$25.00",
+            "subtotal": "$0.00",
+            "discount": "$0.00",
+            "total": "$0.00",
+            "coupon-status": "SAVE10 applied"
+          },
+          "actual": {
+            "quantity": "0",
+            "unit-price": "$25.00",
+            "subtotal": "$0.00",
+            "discount": "$2.50",
+            "total": "$-2.50",
+            "coupon-status": "SAVE10 applied"
+          },
+          "differences": [
+            {
+              "field": "discount",
+              "expected": "$0.00",
+              "actual": "$2.50"
+            },
+            {
+              "field": "total",
+              "expected": "$0.00",
+              "actual": "$-2.50"
+            }
+          ],
+          "screenshot": "empty-shop-4.png"
+        }
+      ]
+    },
+    {
+      "id": "empty",
+      "name": "Set quantity to zero after coupon",
+      "variant": "fixed",
+      "status": "passed",
+      "checkpoints": [
+        {
+          "step": 1,
+          "action": {
+            "type": "click",
+            "target": "add"
+          },
+          "expected": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$0.00",
+            "total": "$25.00",
+            "coupon-status": "No coupon applied"
+          },
+          "actual": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$0.00",
+            "total": "$25.00",
+            "coupon-status": "No coupon applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 2,
+          "action": {
+            "type": "fill",
+            "target": "coupon",
+            "value": "SAVE10"
+          },
+          "expected": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$0.00",
+            "total": "$25.00",
+            "coupon-status": "No coupon applied"
+          },
+          "actual": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$0.00",
+            "total": "$25.00",
+            "coupon-status": "No coupon applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 3,
+          "action": {
+            "type": "click",
+            "target": "apply"
+          },
+          "expected": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$2.50",
+            "total": "$22.50",
+            "coupon-status": "SAVE10 applied"
+          },
+          "actual": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$2.50",
+            "total": "$22.50",
+            "coupon-status": "SAVE10 applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 4,
+          "action": {
+            "type": "fill",
+            "target": "quantity",
+            "value": "0"
+          },
+          "expected": {
+            "quantity": "0",
+            "unit-price": "$25.00",
+            "subtotal": "$0.00",
+            "discount": "$0.00",
+            "total": "$0.00",
+            "coupon-status": "SAVE10 applied"
+          },
+          "actual": {
+            "quantity": "0",
+            "unit-price": "$25.00",
+            "subtotal": "$0.00",
+            "discount": "$0.00",
+            "total": "$0.00",
+            "coupon-status": "SAVE10 applied"
+          },
+          "differences": [],
+          "screenshot": "empty-fixed-4.png"
+        }
+      ]
+    },
+    {
+      "id": "coupon-first",
+      "name": "Apply coupon before adding items",
+      "variant": "shop",
+      "status": "failed",
+      "checkpoints": [
+        {
+          "step": 1,
+          "action": {
+            "type": "fill",
+            "target": "coupon",
+            "value": "SAVE10"
+          },
+          "expected": {
+            "quantity": "0",
+            "unit-price": "$25.00",
+            "subtotal": "$0.00",
+            "discount": "$0.00",
+            "total": "$0.00",
+            "coupon-status": "No coupon applied"
+          },
+          "actual": {
+            "quantity": "0",
+            "unit-price": "$25.00",
+            "subtotal": "$0.00",
+            "discount": "$0.00",
+            "total": "$0.00",
+            "coupon-status": "No coupon applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 2,
+          "action": {
+            "type": "click",
+            "target": "apply"
+          },
+          "expected": {
+            "quantity": "0",
+            "unit-price": "$25.00",
+            "subtotal": "$0.00",
+            "discount": "$0.00",
+            "total": "$0.00",
+            "coupon-status": "SAVE10 applied"
+          },
+          "actual": {
+            "quantity": "0",
+            "unit-price": "$25.00",
+            "subtotal": "$0.00",
+            "discount": "$0.00",
+            "total": "$0.00",
+            "coupon-status": "SAVE10 applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 3,
+          "action": {
+            "type": "click",
+            "target": "add"
+          },
+          "expected": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$2.50",
+            "total": "$22.50",
+            "coupon-status": "SAVE10 applied"
+          },
+          "actual": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$0.00",
+            "total": "$25.00",
+            "coupon-status": "SAVE10 applied"
+          },
+          "differences": [
+            {
+              "field": "discount",
+              "expected": "$2.50",
+              "actual": "$0.00"
+            },
+            {
+              "field": "total",
+              "expected": "$22.50",
+              "actual": "$25.00"
+            }
+          ],
+          "screenshot": "coupon-first-shop-3.png"
+        }
+      ]
+    },
+    {
+      "id": "coupon-first",
+      "name": "Apply coupon before adding items",
+      "variant": "fixed",
+      "status": "passed",
+      "checkpoints": [
+        {
+          "step": 1,
+          "action": {
+            "type": "fill",
+            "target": "coupon",
+            "value": "SAVE10"
+          },
+          "expected": {
+            "quantity": "0",
+            "unit-price": "$25.00",
+            "subtotal": "$0.00",
+            "discount": "$0.00",
+            "total": "$0.00",
+            "coupon-status": "No coupon applied"
+          },
+          "actual": {
+            "quantity": "0",
+            "unit-price": "$25.00",
+            "subtotal": "$0.00",
+            "discount": "$0.00",
+            "total": "$0.00",
+            "coupon-status": "No coupon applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 2,
+          "action": {
+            "type": "click",
+            "target": "apply"
+          },
+          "expected": {
+            "quantity": "0",
+            "unit-price": "$25.00",
+            "subtotal": "$0.00",
+            "discount": "$0.00",
+            "total": "$0.00",
+            "coupon-status": "SAVE10 applied"
+          },
+          "actual": {
+            "quantity": "0",
+            "unit-price": "$25.00",
+            "subtotal": "$0.00",
+            "discount": "$0.00",
+            "total": "$0.00",
+            "coupon-status": "SAVE10 applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 3,
+          "action": {
+            "type": "click",
+            "target": "add"
+          },
+          "expected": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$2.50",
+            "total": "$22.50",
+            "coupon-status": "SAVE10 applied"
+          },
+          "actual": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$2.50",
+            "total": "$22.50",
+            "coupon-status": "SAVE10 applied"
+          },
+          "differences": [],
+          "screenshot": "coupon-first-fixed-3.png"
+        }
+      ]
+    },
+    {
+      "id": "reset",
+      "name": "Reset clears cart and coupon",
+      "variant": "shop",
+      "status": "passed",
+      "checkpoints": [
+        {
+          "step": 1,
+          "action": {
+            "type": "click",
+            "target": "add"
+          },
+          "expected": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$0.00",
+            "total": "$25.00",
+            "coupon-status": "No coupon applied"
+          },
+          "actual": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$0.00",
+            "total": "$25.00",
+            "coupon-status": "No coupon applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 2,
+          "action": {
+            "type": "fill",
+            "target": "coupon",
+            "value": "SAVE10"
+          },
+          "expected": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$0.00",
+            "total": "$25.00",
+            "coupon-status": "No coupon applied"
+          },
+          "actual": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$0.00",
+            "total": "$25.00",
+            "coupon-status": "No coupon applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 3,
+          "action": {
+            "type": "click",
+            "target": "apply"
+          },
+          "expected": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$2.50",
+            "total": "$22.50",
+            "coupon-status": "SAVE10 applied"
+          },
+          "actual": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$2.50",
+            "total": "$22.50",
+            "coupon-status": "SAVE10 applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 4,
+          "action": {
+            "type": "click",
+            "target": "reset"
+          },
+          "expected": {
+            "quantity": "0",
+            "unit-price": "$25.00",
+            "subtotal": "$0.00",
+            "discount": "$0.00",
+            "total": "$0.00",
+            "coupon-status": "No coupon applied"
+          },
+          "actual": {
+            "quantity": "0",
+            "unit-price": "$25.00",
+            "subtotal": "$0.00",
+            "discount": "$0.00",
+            "total": "$0.00",
+            "coupon-status": "No coupon applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 5,
+          "action": {
+            "type": "click",
+            "target": "add"
+          },
+          "expected": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$0.00",
+            "total": "$25.00",
+            "coupon-status": "No coupon applied"
+          },
+          "actual": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$0.00",
+            "total": "$25.00",
+            "coupon-status": "No coupon applied"
+          },
+          "differences": [],
+          "screenshot": "reset-shop-5.png"
+        }
+      ]
+    },
+    {
+      "id": "reset",
+      "name": "Reset clears cart and coupon",
+      "variant": "fixed",
+      "status": "passed",
+      "checkpoints": [
+        {
+          "step": 1,
+          "action": {
+            "type": "click",
+            "target": "add"
+          },
+          "expected": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$0.00",
+            "total": "$25.00",
+            "coupon-status": "No coupon applied"
+          },
+          "actual": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$0.00",
+            "total": "$25.00",
+            "coupon-status": "No coupon applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 2,
+          "action": {
+            "type": "fill",
+            "target": "coupon",
+            "value": "SAVE10"
+          },
+          "expected": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$0.00",
+            "total": "$25.00",
+            "coupon-status": "No coupon applied"
+          },
+          "actual": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$0.00",
+            "total": "$25.00",
+            "coupon-status": "No coupon applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 3,
+          "action": {
+            "type": "click",
+            "target": "apply"
+          },
+          "expected": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$2.50",
+            "total": "$22.50",
+            "coupon-status": "SAVE10 applied"
+          },
+          "actual": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$2.50",
+            "total": "$22.50",
+            "coupon-status": "SAVE10 applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 4,
+          "action": {
+            "type": "click",
+            "target": "reset"
+          },
+          "expected": {
+            "quantity": "0",
+            "unit-price": "$25.00",
+            "subtotal": "$0.00",
+            "discount": "$0.00",
+            "total": "$0.00",
+            "coupon-status": "No coupon applied"
+          },
+          "actual": {
+            "quantity": "0",
+            "unit-price": "$25.00",
+            "subtotal": "$0.00",
+            "discount": "$0.00",
+            "total": "$0.00",
+            "coupon-status": "No coupon applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 5,
+          "action": {
+            "type": "click",
+            "target": "add"
+          },
+          "expected": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$0.00",
+            "total": "$25.00",
+            "coupon-status": "No coupon applied"
+          },
+          "actual": {
+            "quantity": "1",
+            "unit-price": "$25.00",
+            "subtotal": "$25.00",
+            "discount": "$0.00",
+            "total": "$25.00",
+            "coupon-status": "No coupon applied"
+          },
+          "differences": [],
+          "screenshot": "reset-fixed-5.png"
+        }
+      ]
+    },
+    {
+      "id": "repeat-coupon",
+      "name": "Reapplying coupon does not stack discounts",
+      "variant": "shop",
+      "status": "passed",
+      "checkpoints": [
+        {
+          "step": 1,
+          "action": {
+            "type": "fill",
+            "target": "quantity",
+            "value": "2"
+          },
+          "expected": {
+            "quantity": "2",
+            "unit-price": "$25.00",
+            "subtotal": "$50.00",
+            "discount": "$0.00",
+            "total": "$50.00",
+            "coupon-status": "No coupon applied"
+          },
+          "actual": {
+            "quantity": "2",
+            "unit-price": "$25.00",
+            "subtotal": "$50.00",
+            "discount": "$0.00",
+            "total": "$50.00",
+            "coupon-status": "No coupon applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 2,
+          "action": {
+            "type": "fill",
+            "target": "coupon",
+            "value": "SAVE10"
+          },
+          "expected": {
+            "quantity": "2",
+            "unit-price": "$25.00",
+            "subtotal": "$50.00",
+            "discount": "$0.00",
+            "total": "$50.00",
+            "coupon-status": "No coupon applied"
+          },
+          "actual": {
+            "quantity": "2",
+            "unit-price": "$25.00",
+            "subtotal": "$50.00",
+            "discount": "$0.00",
+            "total": "$50.00",
+            "coupon-status": "No coupon applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 3,
+          "action": {
+            "type": "click",
+            "target": "apply"
+          },
+          "expected": {
+            "quantity": "2",
+            "unit-price": "$25.00",
+            "subtotal": "$50.00",
+            "discount": "$5.00",
+            "total": "$45.00",
+            "coupon-status": "SAVE10 applied"
+          },
+          "actual": {
+            "quantity": "2",
+            "unit-price": "$25.00",
+            "subtotal": "$50.00",
+            "discount": "$5.00",
+            "total": "$45.00",
+            "coupon-status": "SAVE10 applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 4,
+          "action": {
+            "type": "click",
+            "target": "apply"
+          },
+          "expected": {
+            "quantity": "2",
+            "unit-price": "$25.00",
+            "subtotal": "$50.00",
+            "discount": "$5.00",
+            "total": "$45.00",
+            "coupon-status": "SAVE10 applied"
+          },
+          "actual": {
+            "quantity": "2",
+            "unit-price": "$25.00",
+            "subtotal": "$50.00",
+            "discount": "$5.00",
+            "total": "$45.00",
+            "coupon-status": "SAVE10 applied"
+          },
+          "differences": [],
+          "screenshot": "repeat-coupon-shop-4.png"
+        }
+      ]
+    },
+    {
+      "id": "repeat-coupon",
+      "name": "Reapplying coupon does not stack discounts",
+      "variant": "fixed",
+      "status": "passed",
+      "checkpoints": [
+        {
+          "step": 1,
+          "action": {
+            "type": "fill",
+            "target": "quantity",
+            "value": "2"
+          },
+          "expected": {
+            "quantity": "2",
+            "unit-price": "$25.00",
+            "subtotal": "$50.00",
+            "discount": "$0.00",
+            "total": "$50.00",
+            "coupon-status": "No coupon applied"
+          },
+          "actual": {
+            "quantity": "2",
+            "unit-price": "$25.00",
+            "subtotal": "$50.00",
+            "discount": "$0.00",
+            "total": "$50.00",
+            "coupon-status": "No coupon applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 2,
+          "action": {
+            "type": "fill",
+            "target": "coupon",
+            "value": "SAVE10"
+          },
+          "expected": {
+            "quantity": "2",
+            "unit-price": "$25.00",
+            "subtotal": "$50.00",
+            "discount": "$0.00",
+            "total": "$50.00",
+            "coupon-status": "No coupon applied"
+          },
+          "actual": {
+            "quantity": "2",
+            "unit-price": "$25.00",
+            "subtotal": "$50.00",
+            "discount": "$0.00",
+            "total": "$50.00",
+            "coupon-status": "No coupon applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 3,
+          "action": {
+            "type": "click",
+            "target": "apply"
+          },
+          "expected": {
+            "quantity": "2",
+            "unit-price": "$25.00",
+            "subtotal": "$50.00",
+            "discount": "$5.00",
+            "total": "$45.00",
+            "coupon-status": "SAVE10 applied"
+          },
+          "actual": {
+            "quantity": "2",
+            "unit-price": "$25.00",
+            "subtotal": "$50.00",
+            "discount": "$5.00",
+            "total": "$45.00",
+            "coupon-status": "SAVE10 applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 4,
+          "action": {
+            "type": "click",
+            "target": "apply"
+          },
+          "expected": {
+            "quantity": "2",
+            "unit-price": "$25.00",
+            "subtotal": "$50.00",
+            "discount": "$5.00",
+            "total": "$45.00",
+            "coupon-status": "SAVE10 applied"
+          },
+          "actual": {
+            "quantity": "2",
+            "unit-price": "$25.00",
+            "subtotal": "$50.00",
+            "discount": "$5.00",
+            "total": "$45.00",
+            "coupon-status": "SAVE10 applied"
+          },
+          "differences": [],
+          "screenshot": "repeat-coupon-fixed-4.png"
+        }
+      ]
+    },
+    {
+      "id": "maximum",
+      "name": "Add at maximum quantity keeps quantity at ten",
+      "variant": "shop",
+      "status": "passed",
+      "checkpoints": [
+        {
+          "step": 1,
+          "action": {
+            "type": "fill",
+            "target": "quantity",
+            "value": "10"
+          },
+          "expected": {
+            "quantity": "10",
+            "unit-price": "$25.00",
+            "subtotal": "$250.00",
+            "discount": "$0.00",
+            "total": "$250.00",
+            "coupon-status": "No coupon applied"
+          },
+          "actual": {
+            "quantity": "10",
+            "unit-price": "$25.00",
+            "subtotal": "$250.00",
+            "discount": "$0.00",
+            "total": "$250.00",
+            "coupon-status": "No coupon applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 2,
+          "action": {
+            "type": "fill",
+            "target": "coupon",
+            "value": "SAVE10"
+          },
+          "expected": {
+            "quantity": "10",
+            "unit-price": "$25.00",
+            "subtotal": "$250.00",
+            "discount": "$0.00",
+            "total": "$250.00",
+            "coupon-status": "No coupon applied"
+          },
+          "actual": {
+            "quantity": "10",
+            "unit-price": "$25.00",
+            "subtotal": "$250.00",
+            "discount": "$0.00",
+            "total": "$250.00",
+            "coupon-status": "No coupon applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 3,
+          "action": {
+            "type": "click",
+            "target": "apply"
+          },
+          "expected": {
+            "quantity": "10",
+            "unit-price": "$25.00",
+            "subtotal": "$250.00",
+            "discount": "$25.00",
+            "total": "$225.00",
+            "coupon-status": "SAVE10 applied"
+          },
+          "actual": {
+            "quantity": "10",
+            "unit-price": "$25.00",
+            "subtotal": "$250.00",
+            "discount": "$25.00",
+            "total": "$225.00",
+            "coupon-status": "SAVE10 applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 4,
+          "action": {
+            "type": "click",
+            "target": "add"
+          },
+          "expected": {
+            "quantity": "10",
+            "unit-price": "$25.00",
+            "subtotal": "$250.00",
+            "discount": "$25.00",
+            "total": "$225.00",
+            "coupon-status": "SAVE10 applied"
+          },
+          "actual": {
+            "quantity": "10",
+            "unit-price": "$25.00",
+            "subtotal": "$250.00",
+            "discount": "$25.00",
+            "total": "$225.00",
+            "coupon-status": "SAVE10 applied"
+          },
+          "differences": [],
+          "screenshot": "maximum-shop-4.png"
+        }
+      ]
+    },
+    {
+      "id": "maximum",
+      "name": "Add at maximum quantity keeps quantity at ten",
+      "variant": "fixed",
+      "status": "passed",
+      "checkpoints": [
+        {
+          "step": 1,
+          "action": {
+            "type": "fill",
+            "target": "quantity",
+            "value": "10"
+          },
+          "expected": {
+            "quantity": "10",
+            "unit-price": "$25.00",
+            "subtotal": "$250.00",
+            "discount": "$0.00",
+            "total": "$250.00",
+            "coupon-status": "No coupon applied"
+          },
+          "actual": {
+            "quantity": "10",
+            "unit-price": "$25.00",
+            "subtotal": "$250.00",
+            "discount": "$0.00",
+            "total": "$250.00",
+            "coupon-status": "No coupon applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 2,
+          "action": {
+            "type": "fill",
+            "target": "coupon",
+            "value": "SAVE10"
+          },
+          "expected": {
+            "quantity": "10",
+            "unit-price": "$25.00",
+            "subtotal": "$250.00",
+            "discount": "$0.00",
+            "total": "$250.00",
+            "coupon-status": "No coupon applied"
+          },
+          "actual": {
+            "quantity": "10",
+            "unit-price": "$25.00",
+            "subtotal": "$250.00",
+            "discount": "$0.00",
+            "total": "$250.00",
+            "coupon-status": "No coupon applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 3,
+          "action": {
+            "type": "click",
+            "target": "apply"
+          },
+          "expected": {
+            "quantity": "10",
+            "unit-price": "$25.00",
+            "subtotal": "$250.00",
+            "discount": "$25.00",
+            "total": "$225.00",
+            "coupon-status": "SAVE10 applied"
+          },
+          "actual": {
+            "quantity": "10",
+            "unit-price": "$25.00",
+            "subtotal": "$250.00",
+            "discount": "$25.00",
+            "total": "$225.00",
+            "coupon-status": "SAVE10 applied"
+          },
+          "differences": []
+        },
+        {
+          "step": 4,
+          "action": {
+            "type": "click",
+            "target": "add"
+          },
+          "expected": {
+            "quantity": "10",
+            "unit-price": "$25.00",
+            "subtotal": "$250.00",
+            "discount": "$25.00",
+            "total": "$225.00",
+            "coupon-status": "SAVE10 applied"
+          },
+          "actual": {
+            "quantity": "10",
+            "unit-price": "$25.00",
+            "subtotal": "$250.00",
+            "discount": "$25.00",
+            "total": "$225.00",
+            "coupon-status": "SAVE10 applied"
+          },
+          "differences": [],
+          "screenshot": "maximum-fixed-4.png"
+        }
+      ]
+    }
+  ],
+  "status": "completed",
+  "counts": {
+    "passed": 15,
+    "failed": 5,
+    "error": 0,
+    "untested": 0
+  },
+  "groups": [
+    {
+      "id": "coupon-recalculation",
+      "label": "Coupon discount not recalculated after cart changes",
+      "basis": "Known demo defect; grouped by discount/total failures. Not AI source-code diagnosis.",
+      "scenarios": [
+        "increase-input",
+        "increase-button",
+        "decrease",
+        "empty",
+        "coupon-first"
+      ]
+    }
+  ]
+}

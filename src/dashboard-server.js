@@ -2,17 +2,22 @@ import http from 'node:http';
 import {readFile,readdir,realpath,stat} from 'node:fs/promises';
 import {existsSync} from 'node:fs';
 import {spawn} from 'node:child_process';
-import {randomUUID} from 'node:crypto';
+import {randomUUID,timingSafeEqual} from 'node:crypto';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 
 const project = fileURLToPath(new URL('../',import.meta.url));
 const runPattern = /^[\w-]+$/;
-export function createDashboard(root=project) {
+export function createDashboard(root=project, options={}) {
+ const publicMode=options.publicMode??process.env.DASHBOARD_PUBLIC==='1';
+ const runKey=options.runKey??process.env.DASHBOARD_RUN_KEY??'';
+ if(publicMode&&runKey&&runKey.length<24)throw new Error('DASHBOARD_RUN_KEY must contain at least 24 characters.');
+ const authorized=req=>!publicMode||(runKey.length>=24&&Buffer.byteLength(req.headers['x-bugarena-run-key']||'')===Buffer.byteLength(runKey)&&timingSafeEqual(Buffer.from(req.headers['x-bugarena-run-key']||''),Buffer.from(runKey)));
+ let launches=0,lastLaunch=0;
  const token=randomUUID();let job=null,child=null;
  const runs=path.join(root,'runs');
  const send=(res,status,data)=>{res.writeHead(status,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify(data));};
- const clean=text=>process.env.MODEL_API_KEY ? text.split(process.env.MODEL_API_KEY).join('[redacted]') : text;
+ const clean=text=>{for(const secret of [process.env.MODEL_API_KEY,runKey])if(secret)text=text.split(secret).join('[redacted]');return publicMode?text.split(path.resolve(root)).join('[workspace]'):text;};
  async function runFile(id,name) {
   if(!runPattern.test(id)||! /^[\w.-]+$/.test(name))throw new Error('Invalid path');
   const base=await realpath(runs),file=await realpath(path.join(runs,id,name));
@@ -22,21 +27,25 @@ export function createDashboard(root=project) {
  const server=http.createServer(async(req,res)=>{
   try {
    const host=`127.0.0.1:${server.address().port}`;
-   if(req.headers.host!==host && req.headers.host!==`localhost:${server.address().port}`)return send(res,403,{error:'Local access only'});
+   if(!publicMode&&req.headers.host!==host && req.headers.host!==`localhost:${server.address().port}`)return send(res,403,{error:'Local access only'});
    const url=new URL(req.url,`http://${host}`),parts=url.pathname.split('/').filter(Boolean);
    if(req.method==='POST') {
     if(req.headers['x-bugarena-token']!==token)return send(res,403,{error:'Invalid session token'});
+    if(!authorized(req))return send(res,403,{error:'Enter the judge access code to launch or stop tests. Saved evidence is public.'});
     if(url.pathname==='/api/start') {
      if(child)return send(res,409,{error:'A test is already running.'});
+     if(publicMode&&(launches>=20||Date.now()-lastLaunch<60000))return send(res,429,{error:launches>=20?'Demo launch budget exhausted. View saved evidence or contact the owner.':'Wait one minute between launches.'});
      const kind=url.searchParams.get('kind');
      const args={ai:['src/hunt.js'],fixed:['src/hunt.js','--fixed'],coverage:['src/coverage.js'],smoke:['src/hunt.js','--fixture']}[kind];
      if(!args)return send(res,400,{error:'Unknown test type'});
      if(['ai','fixed'].includes(kind)&&!process.env.MODEL_API_KEY)return send(res,400,{error:'Set MODEL_API_KEY in .env and restart the dashboard.'});
      const env={...process.env};
+     delete env.DASHBOARD_RUN_KEY;
      const localBrowsers=path.resolve(root,'../../work/bugarena-browsers');
      if(!env.PLAYWRIGHT_BROWSERS_PATH&&existsSync(localBrowsers))env.PLAYWRIGHT_BROWSERS_PATH=localBrowsers;
      job={id:randomUUID(),kind,status:'running',startedAt:new Date().toISOString(),log:'',runId:null};
      const current=job;
+     launches++;lastLaunch=Date.now();
      child=spawn(process.execPath,args,{cwd:root,env,windowsHide:true,stdio:['ignore','pipe','pipe']});
      const append=chunk=>{current.log=(current.log+clean(chunk.toString())).slice(-50000);const match=current.log.match(/Artifacts:.*[\\/]runs[\\/]([\w-]+)/);if(match)current.runId=match[1];};
      child.stdout.on('data',append);child.stderr.on('data',append);
@@ -49,7 +58,8 @@ export function createDashboard(root=project) {
     return send(res,404,{error:'Not found'});
    }
    if(req.method!=='GET')return send(res,405,{error:'Method not allowed'});
-   if(url.pathname==='/api/state')return send(res,200,{token,job,keyConfigured:Boolean(process.env.MODEL_API_KEY)});
+   if(url.pathname==='/healthz')return send(res,200,{ok:true});
+   if(url.pathname==='/api/state')return send(res,200,{token,job,keyConfigured:Boolean(process.env.MODEL_API_KEY),publicMode,canRun:authorized(req),runAccessConfigured:Boolean(runKey)});
    if(url.pathname==='/api/runs') {
     const dirs=await readdir(runs,{withFileTypes:true}).catch(()=>[]);
     const reports=await Promise.all(dirs.filter(d=>d.isDirectory()&&runPattern.test(d.name)).map(async d=>{
@@ -81,6 +91,7 @@ export function createDashboard(root=project) {
 }
 if(process.argv[1]===fileURLToPath(import.meta.url)) {
  const server=createDashboard();
- server.listen(3200,'127.0.0.1',()=>console.log('BugArena dashboard: http://127.0.0.1:3200'));
+ const port=Number(process.env.PORT||3200),host=process.env.DASHBOARD_PUBLIC==='1'?'0.0.0.0':'127.0.0.1';
+ server.listen(port,host,()=>console.log(`BugArena dashboard listening on ${host}:${port}`));
  server.on('error',e=>{console.error(e.code==='EADDRINUSE'?'Port 3200 is already in use. Close the previous dashboard first.':e.message);process.exitCode=1;});
 }

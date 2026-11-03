@@ -2,6 +2,14 @@
 
 An experimental Meta-powered browser tester that explores a demo shop, reports a visible rule violation, reproduces its actions in a fresh browser, and exports a Playwright regression test.
 
+## For judges and reviewers
+
+- **Public source:** https://github.com/yeshwanthnarige/bugarena
+- **Public live demo:** deployment pending; no public demo URL has been verified yet. The localhost URLs below are for running your own copy, not remotely accessing the author's machine.
+- **Recorded evidence:** [live AI example](examples/confirmed-coupon/README.md) and [bundled demo reports](examples/published-runs).
+- **Deployment:** [Render setup](docs/DEPLOYMENT.md).
+- **Submission:** [complete checklist](docs/SUBMISSION-CHECKLIST.md) and [video script](docs/DEMO.md).
+
 ## What is implemented
 
 - Local dashboard with AI/coverage/smoke launch controls, live runner output, cancellation, run history, scenario matrix, screenshots and artifact downloads.
@@ -26,9 +34,9 @@ npm.cmd install
 npm.cmd run browser:install
 ```
 
-## Dashboard
+## Local dashboard
 
-From the project folder, run `npm.cmd run dashboard`, then visit http://127.0.0.1:3200. Keep that terminal running. This is a local, single-user dashboard; do not expose its port publicly.
+From the project folder, run `npm.cmd run dashboard`, then visit http://127.0.0.1:3200. Keep that terminal running. This command starts the local single-user dashboard. For hosted deployment use the Dockerfile and the separate judge access code described in DEPLOYMENT.md.
 
 - **Start AI test** calls Meta and explores the buggy shop. **AI · corrected shop** runs a separate exploration of the clean control; it is not a replay.
 - **Run scenario checks** runs the ten scripted cases against both variants, with no API requests.
@@ -38,7 +46,7 @@ From the project folder, run `npm.cmd run dashboard`, then visit http://127.0.0.
 
 Only one test runs at a time. Stop cancels the runner; a cancelled/interrupted run may not have a complete report. Runs have a 15-minute process limit. The dashboard recognizes this workspace's existing browser cache automatically; other installations should use `npm.cmd run browser:install` or set `PLAYWRIGHT_BROWSERS_PATH`.
 
-The key is loaded from ignored `.env` at startup and used only by backend processes. Restart after changing it. The browser receives only a key-present flag, never the key. Test-launch routes require a per-process session token and the server binds to loopback. No hosted deployment is included.
+The key is loaded from ignored `.env` at startup and used only by backend processes. Restart after changing it. The browser receives only a key-present flag, never the key. Test-launch routes require a per-process session token and the server binds to loopback. Hosting support is included, but public deployment must be completed and verified separately.
 
 ## Step 2 — save your key privately
 
@@ -141,7 +149,7 @@ The oracle and DOM adapter are specific to this shop. The model chooses the work
 
 Do not feed reports, source code, fixture actions, fixed/broken route names, or the hidden benchmark manifest into the agent. The browser observation contains only page text, controls, and visible cart values. Model calls contain that information and prior observations. No private site data is involved in the supplied demo.
 
-The generated test is built from validated actions, not arbitrary model code. The runner only targets its own loopback demo server. Screenshots/reports can contain page data, so runs are Git-ignored. This prototype has no hosted service, user authentication, queue, or multi-user isolation.
+The generated test is built from validated actions, not arbitrary model code. The runner only targets its own loopback demo server. Screenshots/reports can contain page data, so runs are Git-ignored. The hosted demo uses a shared judge access code, not individual user accounts or multi-user isolation.
 
 ## Evidence and submission materials
 
@@ -153,7 +161,7 @@ The generated test is built from validated actions, not arbitrary model code. Th
 
 Initial prototype commit: October 26, 2026. Later work added retry handling, scenario coverage, developer reports, and the dashboard. Retain the actual history; verify event eligibility and current submission requirements with organizers.
 
-Remaining delivery steps are public repository publication, demo recording/upload, and form submission. No public hosted test service is included.
+Remaining delivery steps are deploying and verifying the public demo, recording/uploading the video, and submitting the form. See the submission checklist.
 
 ## Sources
 

@@ -1,0 +1,469 @@
+{
+  "runId": "2026-11-03T18-54-22-665Z-meta",
+  "provider": "meta",
+  "model": "muse-spark-1.3",
+  "status": "confirmed",
+  "goal": "Explore the shopping cart and promo-code workflow, testing variations against the store rules.",
+  "rules": "Each notebook costs 2500 cents. Quantity is an integer from 0 to 10. SAVE10 discounts the current subtotal by 10%, rounded to cents, and remains active until reset. No taxes or shipping. Total equals subtotal minus discount.",
+  "steps": [
+    {
+      "action": {
+        "type": "click",
+        "target": "add"
+      },
+      "observation": {
+        "text": "fieldwork / everyday essentials\nDemo store · no real purchases\nLESS STUFF. BETTER DAYS.\nA small upgrade to your everyday.\n\nThoughtful essentials for your desk. Free shipping. Try SAVE10 for 10% off.\n\n▤\nStudio notebook\n\nLay-flat pages. A little room to think.\n\n$25.00\n\nAdd to cart\n\nYour bag\nQuantity\nPromo code\nApply coupon\n\nNo coupon applied\n\nUnit price\n$25.00\nSubtotal\n$0.00\nDiscount\n$0.00\nTotal\n$0.00\nReset cart\nStore rules",
+        "controls": [
+          {
+            "id": "add",
+            "tag": "button",
+            "text": "Add to cart",
+            "value": ""
+          },
+          {
+            "id": "quantity",
+            "tag": "input",
+            "text": "",
+            "value": "0"
+          },
+          {
+            "id": "coupon",
+            "tag": "input",
+            "text": "",
+            "value": ""
+          },
+          {
+            "id": "apply",
+            "tag": "button",
+            "text": "Apply coupon",
+            "value": ""
+          },
+          {
+            "id": "reset",
+            "tag": "button",
+            "text": "Reset cart",
+            "value": ""
+          }
+        ],
+        "cart": {
+          "quantity": "0",
+          "unit-price": "$25.00",
+          "subtotal": "$0.00",
+          "discount": "$0.00",
+          "total": "$0.00",
+          "coupon-status": "No coupon applied"
+        }
+      }
+    },
+    {
+      "action": {
+        "type": "fill",
+        "target": "coupon",
+        "value": "SAVE10"
+      },
+      "observation": {
+        "text": "fieldwork / everyday essentials\nDemo store · no real purchases\nLESS STUFF. BETTER DAYS.\nA small upgrade to your everyday.\n\nThoughtful essentials for your desk. Free shipping. Try SAVE10 for 10% off.\n\n▤\nStudio notebook\n\nLay-flat pages. A little room to think.\n\n$25.00\n\nAdd to cart\n\nYour bag\nQuantity\nPromo code\nApply coupon\n\nNo coupon applied\n\nUnit price\n$25.00\nSubtotal\n$25.00\nDiscount\n$0.00\nTotal\n$25.00\nReset cart\nStore rules",
+        "controls": [
+          {
+            "id": "add",
+            "tag": "button",
+            "text": "Add to cart",
+            "value": ""
+          },
+          {
+            "id": "quantity",
+            "tag": "input",
+            "text": "",
+            "value": "1"
+          },
+          {
+            "id": "coupon",
+            "tag": "input",
+            "text": "",
+            "value": ""
+          },
+          {
+            "id": "apply",
+            "tag": "button",
+            "text": "Apply coupon",
+            "value": ""
+          },
+          {
+            "id": "reset",
+            "tag": "button",
+            "text": "Reset cart",
+            "value": ""
+          }
+        ],
+        "cart": {
+          "quantity": "1",
+          "unit-price": "$25.00",
+          "subtotal": "$25.00",
+          "discount": "$0.00",
+          "total": "$25.00",
+          "coupon-status": "No coupon applied"
+        }
+      }
+    },
+    {
+      "action": {
+        "type": "click",
+        "target": "apply"
+      },
+      "observation": {
+        "text": "fieldwork / everyday essentials\nDemo store · no real purchases\nLESS STUFF. BETTER DAYS.\nA small upgrade to your everyday.\n\nThoughtful essentials for your desk. Free shipping. Try SAVE10 for 10% off.\n\n▤\nStudio notebook\n\nLay-flat pages. A little room to think.\n\n$25.00\n\nAdd to cart\n\nYour bag\nQuantity\nPromo code\nApply coupon\n\nNo coupon applied\n\nUnit price\n$25.00\nSubtotal\n$25.00\nDiscount\n$0.00\nTotal\n$25.00\nReset cart\nStore rules",
+        "controls": [
+          {
+            "id": "add",
+            "tag": "button",
+            "text": "Add to cart",
+            "value": ""
+          },
+          {
+            "id": "quantity",
+            "tag": "input",
+            "text": "",
+            "value": "1"
+          },
+          {
+            "id": "coupon",
+            "tag": "input",
+            "text": "",
+            "value": "SAVE10"
+          },
+          {
+            "id": "apply",
+            "tag": "button",
+            "text": "Apply coupon",
+            "value": ""
+          },
+          {
+            "id": "reset",
+            "tag": "button",
+            "text": "Reset cart",
+            "value": ""
+          }
+        ],
+        "cart": {
+          "quantity": "1",
+          "unit-price": "$25.00",
+          "subtotal": "$25.00",
+          "discount": "$0.00",
+          "total": "$25.00",
+          "coupon-status": "No coupon applied"
+        }
+      }
+    },
+    {
+      "action": {
+        "type": "click",
+        "target": "add"
+      },
+      "observation": {
+        "text": "fieldwork / everyday essentials\nDemo store · no real purchases\nLESS STUFF. BETTER DAYS.\nA small upgrade to your everyday.\n\nThoughtful essentials for your desk. Free shipping. Try SAVE10 for 10% off.\n\n▤\nStudio notebook\n\nLay-flat pages. A little room to think.\n\n$25.00\n\nAdd to cart\n\nYour bag\nQuantity\nPromo code\nApply coupon\n\nSAVE10 applied\n\nUnit price\n$25.00\nSubtotal\n$25.00\nDiscount\n$2.50\nTotal\n$22.50\nReset cart\nStore rules",
+        "controls": [
+          {
+            "id": "add",
+            "tag": "button",
+            "text": "Add to cart",
+            "value": ""
+          },
+          {
+            "id": "quantity",
+            "tag": "input",
+            "text": "",
+            "value": "1"
+          },
+          {
+            "id": "coupon",
+            "tag": "input",
+            "text": "",
+            "value": "SAVE10"
+          },
+          {
+            "id": "apply",
+            "tag": "button",
+            "text": "Apply coupon",
+            "value": ""
+          },
+          {
+            "id": "reset",
+            "tag": "button",
+            "text": "Reset cart",
+            "value": ""
+          }
+        ],
+        "cart": {
+          "quantity": "1",
+          "unit-price": "$25.00",
+          "subtotal": "$25.00",
+          "discount": "$2.50",
+          "total": "$22.50",
+          "coupon-status": "SAVE10 applied"
+        }
+      }
+    },
+    {
+      "action": {
+        "type": "report"
+      },
+      "observation": {
+        "text": "fieldwork / everyday essentials\nDemo store · no real purchases\nLESS STUFF. BETTER DAYS.\nA small upgrade to your everyday.\n\nThoughtful essentials for your desk. Free shipping. Try SAVE10 for 10% off.\n\n▤\nStudio notebook\n\nLay-flat pages. A little room to think.\n\n$25.00\n\nAdd to cart\n\nYour bag\nQuantity\nPromo code\nApply coupon\n\nSAVE10 applied\n\nUnit price\n$25.00\nSubtotal\n$50.00\nDiscount\n$2.50\nTotal\n$47.50\nReset cart\nStore rules",
+        "controls": [
+          {
+            "id": "add",
+            "tag": "button",
+            "text": "Add to cart",
+            "value": ""
+          },
+          {
+            "id": "quantity",
+            "tag": "input",
+            "text": "",
+            "value": "2"
+          },
+          {
+            "id": "coupon",
+            "tag": "input",
+            "text": "",
+            "value": "SAVE10"
+          },
+          {
+            "id": "apply",
+            "tag": "button",
+            "text": "Apply coupon",
+            "value": ""
+          },
+          {
+            "id": "reset",
+            "tag": "button",
+            "text": "Reset cart",
+            "value": ""
+          }
+        ],
+        "cart": {
+          "quantity": "2",
+          "unit-price": "$25.00",
+          "subtotal": "$50.00",
+          "discount": "$2.50",
+          "total": "$47.50",
+          "coupon-status": "SAVE10 applied"
+        }
+      }
+    }
+  ],
+  "usage": [
+    {
+      "input_tokens": 472,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 245,
+      "output_tokens_details": {
+        "reasoning_tokens": 227
+      },
+      "total_tokens": 717
+    },
+    {
+      "input_tokens": 526,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 314,
+      "output_tokens_details": {
+        "reasoning_tokens": 269
+      },
+      "total_tokens": 840
+    },
+    {
+      "input_tokens": 565,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 321,
+      "output_tokens_details": {
+        "reasoning_tokens": 298
+      },
+      "total_tokens": 886
+    },
+    {
+      "input_tokens": 587,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 225,
+      "output_tokens_details": {
+        "reasoning_tokens": 207
+      },
+      "total_tokens": 812
+    },
+    {
+      "input_tokens": 641,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 530,
+      "output_tokens_details": {
+        "reasoning_tokens": 512
+      },
+      "total_tokens": 1171
+    },
+    {
+      "input_tokens": 695,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      },
+      "output_tokens": 1533,
+      "output_tokens_details": {
+        "reasoning_tokens": 1519
+      },
+      "total_tokens": 2228
+    }
+  ],
+  "confirmed": true,
+  "targetPath": "/shop",
+  "modelAttempts": [
+    {
+      "step": 1,
+      "attempt": 1,
+      "usage": {
+        "input_tokens": 472,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 245,
+        "output_tokens_details": {
+          "reasoning_tokens": 227
+        },
+        "total_tokens": 717
+      },
+      "accepted": true
+    },
+    {
+      "step": 2,
+      "attempt": 1,
+      "usage": {
+        "input_tokens": 526,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 314,
+        "output_tokens_details": {
+          "reasoning_tokens": 269
+        },
+        "total_tokens": 840
+      },
+      "accepted": false,
+      "error": "Return exactly one valid JSON object, without commentary."
+    },
+    {
+      "step": 2,
+      "attempt": 2,
+      "usage": {
+        "input_tokens": 565,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 321,
+        "output_tokens_details": {
+          "reasoning_tokens": 298
+        },
+        "total_tokens": 886
+      },
+      "accepted": true
+    },
+    {
+      "step": 3,
+      "attempt": 1,
+      "usage": {
+        "input_tokens": 587,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 225,
+        "output_tokens_details": {
+          "reasoning_tokens": 207
+        },
+        "total_tokens": 812
+      },
+      "accepted": true
+    },
+    {
+      "step": 4,
+      "attempt": 1,
+      "usage": {
+        "input_tokens": 641,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 530,
+        "output_tokens_details": {
+          "reasoning_tokens": 512
+        },
+        "total_tokens": 1171
+      },
+      "accepted": true
+    },
+    {
+      "step": 5,
+      "attempt": 1,
+      "usage": {
+        "input_tokens": 695,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        },
+        "output_tokens": 1533,
+        "output_tokens_details": {
+          "reasoning_tokens": 1519
+        },
+        "total_tokens": 2228
+      },
+      "accepted": true
+    }
+  ],
+  "finding": {
+    "violated": true,
+    "expected": {
+      "subtotal": 5000,
+      "discount": 500,
+      "total": 4500
+    },
+    "actual": {
+      "subtotal": 5000,
+      "discount": 250,
+      "total": 4750
+    },
+    "quantity": 2,
+    "couponActive": true
+  },
+  "replay": {
+    "violated": true,
+    "expected": {
+      "subtotal": 5000,
+      "discount": 500,
+      "total": 4500
+    },
+    "actual": {
+      "subtotal": 5000,
+      "discount": 250,
+      "total": 4750
+    },
+    "quantity": 2,
+    "couponActive": true
+  },
+  "fixedReplay": {
+    "violated": false,
+    "expected": {
+      "subtotal": 5000,
+      "discount": 500,
+      "total": 4500
+    },
+    "actual": {
+      "subtotal": 5000,
+      "discount": 500,
+      "total": 4500
+    },
+    "quantity": 2,
+    "couponActive": true
+  }
+}
