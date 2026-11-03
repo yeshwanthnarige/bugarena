@@ -1,0 +1,74 @@
+{
+  "runId": "2026-11-03T18-54-22-665Z-meta",
+  "provider": "meta",
+  "model": "muse-spark-1.3",
+  "status": "confirmed",
+  "targetPath": "/shop",
+  "actions": [
+    {
+      "type": "click",
+      "target": "add"
+    },
+    {
+      "type": "fill",
+      "target": "coupon",
+      "value": "SAVE10"
+    },
+    {
+      "type": "click",
+      "target": "apply"
+    },
+    {
+      "type": "click",
+      "target": "add"
+    },
+    {
+      "type": "report"
+    }
+  ],
+  "finding": {
+    "violated": true,
+    "expected": {
+      "subtotal": 5000,
+      "discount": 500,
+      "total": 4500
+    },
+    "actual": {
+      "subtotal": 5000,
+      "discount": 250,
+      "total": 4750
+    },
+    "quantity": 2,
+    "couponActive": true
+  },
+  "replay": {
+    "violated": true,
+    "expected": {
+      "subtotal": 5000,
+      "discount": 500,
+      "total": 4500
+    },
+    "actual": {
+      "subtotal": 5000,
+      "discount": 250,
+      "total": 4750
+    },
+    "quantity": 2,
+    "couponActive": true
+  },
+  "fixedReplay": {
+    "violated": false,
+    "expected": {
+      "subtotal": 5000,
+      "discount": 500,
+      "total": 4500
+    },
+    "actual": {
+      "subtotal": 5000,
+      "discount": 500,
+      "total": 4500
+    },
+    "quantity": 2,
+    "couponActive": true
+  }
+}

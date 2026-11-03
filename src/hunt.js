@@ -3,6 +3,8 @@ import {mkdir,writeFile} from 'node:fs/promises';
 import path from 'node:path';
 import {createShopServer} from './server.js';
 import {askMeta} from './meta.js';
+import {chooseAction} from './actions.js';
+import {writeRunReport} from './report.js';
 import {observe,validateAction,execute,checkCart,RULES} from './browser.js';
 
 const fixture=process.argv.includes('--fixture');
@@ -16,6 +18,7 @@ const runId=new Date().toISOString().replace(/[:.]/g,'-')+'-'+(fixture?'fixture'
 const directory=path.resolve('runs',runId);await mkdir(directory,{recursive:true});
 let browser,server;
 const report={runId,provider:fixture?'scripted-fixture':'meta',model:fixture?null:process.env.META_MODEL||'muse-spark-1.3',status:'running',goal:'Explore the shopping cart and promo-code workflow, testing variations against the store rules.',rules:RULES,steps:[],usage:[],confirmed:false};
+report.targetPath=corrected?'/fixed':'/shop';
 async function replay(url,actions){
  const context=await browser.newContext();const page=await context.newPage();await page.goto(url);
  for(const action of actions)await execute(page,validateAction(action,await observe(page)));
@@ -37,9 +40,10 @@ try{
   let chosen;
   if(fixture)chosen=fixtureActions[step]||{type:'finish'};
   else{
-   const answer=await askMeta(instructions,JSON.stringify({goal:report.goal,rules:RULES,history:report.steps.map(s=>({action:s.action,cart:s.observation.cart})),observation}));
-   report.usage.push(answer.usage);
-   try{chosen=JSON.parse(answer.text.trim().replace(/^```(?:json)?\s*|\s*```$/g,''));}catch{throw new Error('Model did not return valid action JSON. No unvalidated action executed.');}
+   chosen=await chooseAction({ask:askMeta,instructions,observation,
+    input:{goal:report.goal,rules:RULES,history:report.steps.map(s=>({action:s.action,cart:s.observation.cart})),observation},
+    onAttempt:attempt=>{report.usage.push(attempt.usage);(report.modelAttempts??=[]).push({step:step+1,...attempt});if(!attempt.accepted)console.log(`Step ${step+1}: invalid model action (attempt ${attempt.attempt}/3). ${attempt.error}`);}
+   });
   }
   const action=validateAction(chosen,observation);report.steps.push({action,observation});console.log(`Step ${step+1}:`,JSON.stringify(action));
   if(action.type==='finish'){report.status='no-finding';break;}
@@ -64,6 +68,6 @@ try{
 finally{
  await browser?.close();if(server)await new Promise(resolve=>server.close(resolve));
  await writeFile(path.join(directory,'report.json'),JSON.stringify(report,null,2));
- await writeFile(path.join(directory,'report.md'),`# BugArena run\n\nProvider: **${report.provider}**\n\nStatus: **${report.status}**\n\n${fixture?'SCRIPTED INFRASTRUCTURE CHECK — NOT AI DISCOVERY.\n\n':''}Actions: ${report.steps.length}\n\nConfirmed in fresh browser: ${report.confirmed}\n\nCorrected version passes: ${report.fixedReplay? !report.fixedReplay.violated:'not tested'}\n\nSee report.json for observed states, assertions, and token usage. Screenshots and trace are local evidence.\n`);
+ await writeRunReport(directory,report);
  console.log(`Result: ${report.status}\nArtifacts: ${directory}`);
 }

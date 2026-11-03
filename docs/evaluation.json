@@ -1,0 +1,68 @@
+{
+  "note": "All saved Meta reports available at packaging time. Not a controlled benchmark; early runs did not record the target route. Infrastructure failures are retained.",
+  "runs": [
+    {
+      "runId": "2026-10-27T15-00-31-128Z-meta",
+      "target": "not recorded",
+      "status": "confirmed",
+      "confirmed": true,
+      "decisions": 5,
+      "requests": 5,
+      "totalTokens": 4837
+    },
+    {
+      "runId": "2026-10-27T19-38-17-370Z-meta",
+      "target": "not recorded",
+      "status": "error",
+      "confirmed": false,
+      "decisions": 0,
+      "requests": 1,
+      "totalTokens": 647
+    },
+    {
+      "runId": "2026-10-27T19-38-46-439Z-meta",
+      "target": "not recorded",
+      "status": "error",
+      "confirmed": false,
+      "decisions": 0,
+      "requests": 1,
+      "totalTokens": 714
+    },
+    {
+      "runId": "2026-10-27T19-41-38-563Z-meta",
+      "target": "not recorded",
+      "status": "confirmed",
+      "confirmed": true,
+      "decisions": 5,
+      "requests": 9,
+      "totalTokens": 8702
+    },
+    {
+      "runId": "2026-11-03T18-51-37-155Z-meta",
+      "target": "/shop",
+      "status": "error",
+      "confirmed": false,
+      "decisions": 0,
+      "requests": 0,
+      "totalTokens": 0
+    },
+    {
+      "runId": "2026-11-03T18-54-22-665Z-meta",
+      "target": "/shop",
+      "status": "confirmed",
+      "confirmed": true,
+      "decisions": 5,
+      "requests": 6,
+      "totalTokens": 6654
+    },
+    {
+      "runId": "2026-11-03T18-56-55-147Z-meta",
+      "target": "/fixed",
+      "status": "step-limit",
+      "confirmed": false,
+      "decisions": 15,
+      "requests": 27,
+      "totalTokens": 72573
+    }
+  ]
+}

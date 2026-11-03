@@ -4,6 +4,8 @@ An experimental Meta-powered browser tester that explores a demo shop, reports a
 
 ## What is implemented
 
+- Local dashboard with AI/coverage/smoke launch controls, live runner output, cancellation, run history, scenario matrix, screenshots and artifact downloads.
+
 - Meta Responses API connection using `muse-spark-1.3`, with a server-side environment key.
 - A local shopping app with an intentionally stale coupon discount and a corrected version.
 - An agent loop that receives visible text, form controls, and cart values, not source code or bug locations.
@@ -12,7 +14,7 @@ An experimental Meta-powered browser tester that explores a demo shop, reports a
 - Fresh-context replay, before/after screenshots, a Playwright trace, JSON/Markdown reports, and an exported regression test.
 - Explicitly separate scripted fixture mode for testing the infrastructure without an API key.
 
-This is milestone 1, not a general-purpose website tester. A successful fixture run is **not evidence of AI discovery**. A live Meta run is required to demonstrate discovery. The corrected variant is prewritten; BugArena does not automatically fix application code.
+This is a working local prototype, not a general-purpose website tester. A successful fixture run is **not evidence of AI discovery**. A live Meta run is required to demonstrate discovery. The corrected variant is prewritten; BugArena does not automatically fix application code.
 
 ## Step 1 — open the project
 
@@ -23,6 +25,20 @@ node --version
 npm.cmd install
 npm.cmd run browser:install
 ```
+
+## Dashboard
+
+From the project folder, run `npm.cmd run dashboard`, then visit http://127.0.0.1:3200. Keep that terminal running. This is a local, single-user dashboard; do not expose its port publicly.
+
+- **Start AI test** calls Meta and explores the buggy shop. **AI · corrected shop** runs a separate exploration of the clean control; it is not a replay.
+- **Run scenario checks** runs the ten scripted cases against both variants, with no API requests.
+- **Scripted smoke test** verifies the discovery/replay pipeline with a known action sequence; it is not AI discovery.
+- Select a run to inspect amounts, actions, coverage, screenshots and downloads. The generated regression test is available only for confirmed hunt runs; scenario suites do not generate one.
+- A completed runner means the process finished; inspect the report's finding status. Five expected buggy-shop failures in the coverage suite are successful detection, not infrastructure errors.
+
+Only one test runs at a time. Stop cancels the runner; a cancelled/interrupted run may not have a complete report. Runs have a 15-minute process limit. The dashboard recognizes this workspace's existing browser cache automatically; other installations should use `npm.cmd run browser:install` or set `PLAYWRIGHT_BROWSERS_PATH`.
+
+The key is loaded from ignored `.env` at startup and used only by backend processes. Restart after changing it. The browser receives only a key-present flag, never the key. Test-launch routes require a per-process session token and the server binds to loopback. No hosted deployment is included.
 
 ## Step 2 — save your key privately
 
@@ -59,7 +75,7 @@ Smoke mode uses a known sequence and no Meta calls. Expected: `confirmed`, a sta
 npm.cmd run hunt
 ```
 
-The runner starts its own temporary shop server and headless browser, calls Meta once per decision, and prints each action. It stops at the configured step limit (15 by default, maximum 30), a report, completion, or an error. Model and browser timeouts bound individual calls. The model sees the goal and product rules but is not given the bug trigger or shop implementation.
+The runner starts its own temporary shop server and headless browser, calls Meta for each decision (with at most two additional retries for invalid actions), and prints each action. It stops at the configured step limit (15 by default, maximum 30), a report, completion, or an error. Model and browser timeouts bound individual calls. The model sees the goal and product rules but is not given the bug trigger or shop implementation.
 
 Possible outcomes:
 
@@ -99,24 +115,45 @@ The identical test should **pass** on `/fixed`. Only confirmed runs export a tes
 
 ## Scope and honest evaluation
 
+### Developer reports and scenario coverage
+
+Every new hunt writes a developer report containing reproduction actions, expected/actual amounts, customer impact, replay outcomes, evidence links, and instructions to run the exported test. Source-code root cause is not inferred from browser observations. Invalid model actions receive at most two retries; all attempts and token usage are recorded.
+
+To regenerate a previous run's Markdown report from its existing JSON without calling Meta:
+
+```powershell
+npm.cmd run report:refresh -- "runs/YOUR_RUN_FOLDER"
+```
+
+Run ten predefined scenarios on both `/shop` and `/fixed`:
+
+```powershell
+# This workspace already has browsers installed here. Omit this line if using the default install.
+$env:PLAYWRIGHT_BROWSERS_PATH = (Resolve-Path "..\..\work\bugarena-browsers").Path
+npm.cmd run scenarios
+```
+
+This starts its own temporary server, uses fresh browser contexts, and makes no API calls. It is **scripted coverage, not AI discovery**. The model never receives the scenario definitions. Cases cover coupon application, quantity increases by input/button, decrease, zero, coupon before cart, reset, repeat coupon, no-coupon changes, and maximum quantity. Assertions use independently specified quantity/coupon state and the published $25 unit price after every action.
+
+Open `runs/<timestamp>-coverage/report.md` for the passed/failed/error/untested matrix, grouped coupon failures, reproduction steps, actual/expected values, and screenshot/trace links. Full checkpoints are in `report.json`. A failed check remains recorded even if later actions restore correct values. Deliberate buggy-shop failures do not make the command fail; errors, untested cases, or failures on the corrected control do. The suite is finite and does not prove exhaustive coverage.
+
 The oracle and DOM adapter are specific to this shop. The model chooses the workflow and when to report; expected totals are calculated in ordinary code from visible values and the published rule. This avoids treating a second LLM opinion as proof. It does not demonstrate general discovery on arbitrary sites. Public product rules necessarily reveal what behavior matters, but do not disclose the implementation defect.
 
 Do not feed reports, source code, fixture actions, fixed/broken route names, or the hidden benchmark manifest into the agent. The browser observation contains only page text, controls, and visible cart values. Model calls contain that information and prior observations. No private site data is involved in the supplied demo.
 
 The generated test is built from validated actions, not arbitrary model code. The runner only targets its own loopback demo server. Screenshots/reports can contain page data, so runs are Git-ignored. This prototype has no hosted service, user authentication, queue, or multi-user isolation.
 
-## Next milestones through submission
+## Evidence and submission materials
 
-1. **Live proof:** obtain one confirmed Meta-discovered bug; save the raw run and replay evidence. Report failures honestly rather than counting only the successful attempt.
-2. **Robustness:** handle malformed model JSON with bounded retries, add cancellation and total run budgets, and improve selectors while preserving validation.
-3. **More scenarios:** add coupon eligibility, removing cart items, rounding, and checkout consistency; give each a clean corrected control. Keep expected bug labels in a separate evaluation manifest invisible to the model.
-4. **Dashboard:** launch a run, show current step and evidence, list confirmed versus unsupported findings, download tests, and trigger replay. Keep the API key only in the backend.
-5. **Evaluation:** record attempted runs, discoveries, false alarms on clean controls, replay success, duration, and token usage. Use repeated runs and state the sample size. Distinguish fixture runs from live runs in every view.
-6. **Packaging:** create a separate public BugArena repo, add setup instructions and architecture, document exactly what was developed during the event, and provide a working demonstration environment. Review data before publishing sample reports.
-7. **Video:** within three minutes, show goal → model-selected actions → bug evidence → failing exported test → passing same test on the corrected app. Label seeded bugs and the prewritten fix honestly.
-8. **Submission:** upload through the hackathon's CV submission page; verify repo/video access while signed out and list all contributors. The supplied guide specifies November 4, 2026, 9 p.m. Eastern / 8 p.m. Chicago. Aim to submit a day early and verify any organizer updates.
+- [Recorded live discovery](examples/confirmed-coupon/README.md): selected actions, replay evidence, and exported regression test.
+- [Saved live-run outcomes](docs/evaluation.json): includes errors and inconclusive results; not a controlled benchmark.
+- [Architecture](docs/ARCHITECTURE.md).
+- [Three-minute demo script](docs/DEMO.md).
+- [Submission text and development disclosure](docs/SUBMISSION.md).
 
-Confirm the event's start-time ambiguity (guide says building Oct 27; partner form says Oct 26) with organizers and retain accurate commit timestamps. Never backdate work or describe pre-event work as event work. The pasted judging section was incomplete; incorporate the full rubric when available.
+Initial prototype commit: October 26, 2026. Later work added retry handling, scenario coverage, developer reports, and the dashboard. Retain the actual history; verify event eligibility and current submission requirements with organizers.
+
+Remaining delivery steps are public repository publication, demo recording/upload, and form submission. No public hosted test service is included.
 
 ## Sources
 
