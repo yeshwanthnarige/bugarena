@@ -38,6 +38,6 @@ The initial local prototype commit is dated October 26, 2026. Subsequent work ad
 - Public repository URL: https://github.com/yeshwanthnarige/bugarena
 - Demo video URL: pending recording/upload.
 - Contributors: confirm the names required by the application.
-- Deployment: Render instructions in DEPLOYMENT.md; insert the assigned HTTPS URL after verification.
+- Public demo: https://bugarena-96ki.onrender.com — public evidence viewing verified; a fresh hosted live test still needs verification. Supply the judge access code privately.
 
 Copy only the sections relevant to the actual form. Do not submit placeholder URLs or claim publication/video completion before they exist.

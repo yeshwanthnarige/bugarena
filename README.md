@@ -5,7 +5,7 @@ An experimental Meta-powered browser tester that explores a demo shop, reports a
 ## For judges and reviewers
 
 - **Public source:** https://github.com/yeshwanthnarige/bugarena
-- **Public live demo:** deployment pending; no public demo URL has been verified yet. The localhost URLs below are for running your own copy, not remotely accessing the author's machine.
+- **Public live demo:** https://bugarena-96ki.onrender.com — saved evidence is public; live execution requires the judge access code. The localhost URLs below are only for running your own copy.
 - **Recorded evidence:** [live AI example](examples/confirmed-coupon/README.md) and [bundled demo reports](examples/published-runs).
 - **Deployment:** [Render setup](docs/DEPLOYMENT.md).
 - **Submission:** [complete checklist](docs/SUBMISSION-CHECKLIST.md) and [video script](docs/DEMO.md).
