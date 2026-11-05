@@ -1,6 +1,6 @@
 # Three-minute BugArena demo
 
-Use the local dashboard at http://127.0.0.1:3200. Keep `.env`, API-key settings, private tabs, and personal notifications off screen. Leave model retry messages visible; do not describe recorded evidence as a live run.
+Use the public dashboard at https://bugarena-96ki.onrender.com, or run your own local dashboard at http://127.0.0.1:3200. A 2:58.93 narrated evidence walkthrough has been produced; its upload URL has not yet been supplied. Keep `.env`, API-key settings, private tabs, and personal notifications off screen. Leave model retry messages visible; do not describe recorded evidence as a live run.
 
 ## 0:00–0:25 — Problem and scope
 

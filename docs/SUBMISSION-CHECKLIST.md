@@ -1,6 +1,6 @@
 # End-to-end submission checklist
 
-Source: participant guide supplied by the entrant, plus public event page checked November 3, 2026. The supplied guide ends before the full Stage Two rubric. The signed-in submission form must still be inspected; exact field labels/limits and any newer announcements are not confirmed here.
+Source: participant guide supplied by the entrant, plus public event page checked November 3, 2026. The supplied guide ends before the full Stage Two rubric. The entrant supplied the submission field labels and limits on November 4. Final form submission and newer announcements have not been independently confirmed.
 
 Deadline listed: **November 4, 2026, 9 PM Eastern / 8 PM America/Chicago**. Submit before the deadline, not at the last minute.
 
@@ -10,8 +10,8 @@ Deadline listed: **November 4, 2026, 9 PM Eastern / 8 PM America/Chicago**. Subm
 | Fit a project theme | Suggested: Push the Frontier, software testing; choose the appropriate form option |
 | Participant track | Indie developer fits a solo individual entry; confirm your registration |
 | Public source repository | Pushed to https://github.com/yeshwanthnarige/bugarena; verify it opens signed out |
-| Live product for evaluation | Deployment files prepared; Render deployment and public URL still required |
-| Three-minute demo video | Script ready in DEMO.md; recording, upload and accessible link still required |
+| Live product for evaluation | Live at https://bugarena-96ki.onrender.com; hosted AI, replay, and scripted coverage verified |
+| Three-minute demo video | Narrated 1080p video produced, duration 2:58.93; upload and accessible viewing URL still require confirmation |
 | Original event contributions | Disclose actual dates and specific additions; October 26 initial commit precedes the guide's stated October 27 building start, while public event page starts October 26. Ask organizers to resolve eligibility ambiguity |
 | Team and representative | List every contributor; solo allowed, max four; confirm name and representative in form |
 | Rights and project eligibility | Review code/assets and rules; do not imply organizer approval |
@@ -22,7 +22,7 @@ Deadline listed: **November 4, 2026, 9 PM Eastern / 8 PM America/Chicago**. Subm
 ## Required public links to collect
 
 1. Repository: https://github.com/yeshwanthnarige/bugarena
-2. Live demo: use the actual HTTPS URL Render assigns. Localhost is not valid here.
+2. Live demo: https://bugarena-96ki.onrender.com. Localhost is only for local development.
 3. Video: upload a recording no longer than three minutes to a platform judges can access. Test the exact link while signed out.
 
 ## Before recording
